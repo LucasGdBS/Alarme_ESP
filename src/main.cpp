@@ -11,7 +11,6 @@ void enviarDados(float ran){
 
   // Define URL e BODY para fazer o post
   String url = "https://alarmeiot.up.railway.app/postdistancia/?dado=" + String(ran);
-  String body = String(ran, 4);
   Serial.printf("Numero sorteado: %f\n", ran);
 
   // Inicia a conexão com a URL da API e adiciona o header (essa ultima parte eu n entendi direito)
