@@ -1,6 +1,8 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
 
+#define wifi "NOME"
+#define senha "SENHA"
 
 void enviarDados(float ran){
 
@@ -40,7 +42,7 @@ void setup(){
   randomSeed(millis());
 
   // Conecta à rede WiFi
-  WiFi.begin("Nome_WIFI", "Senha_WIFI");
+  WiFi.begin(wifi, senha);
 
   // Aguarda a conexão ser estabelecida
   while (WiFi.status() != WL_CONNECTED) {
