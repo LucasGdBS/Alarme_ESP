@@ -10,16 +10,18 @@ void enviarDados(float ran){
   HTTPClient http;
 
   // Define URL e BODY para fazer o post
-  String url = "https://alarmeiot.up.railway.app/postdistancia/?dado=" + String(ran);
+  String url = "https://alarmeiot.up.railway.app/postdistancia/";
+  String body = "{ \"dado\": " + String(ran, 4) + "}";
   Serial.printf("Numero sorteado: %f\n", ran);
 
   // Inicia a conexão com a URL da API e adiciona o header (essa ultima parte eu n entendi direito)
   http.begin(url);
   
   http.addHeader("accept", "application/json");
+  http.addHeader("Content-Type", "application/json");
 
   // Faz o post e recebe a resposta HTTP
-  int httpCode = http.POST({});
+  int httpCode = http.POST(body);
 
   // Verifica se o post foi um sucesso
   if (httpCode > 0){
